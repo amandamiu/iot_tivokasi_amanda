@@ -1,25 +1,43 @@
-#include <Arduino.h>
+#include <Arduino.h>  // Wajib untuk PlatformIO + ESP32
 
-int light1 =14;
-int light2 =26;
-int light3 =33;
+
+// Deklarasi pin LED
+int lampu1 = 25;
+int lampu2 = 33;
+int lampu3 = 32;
 
 void setup() {
- pinMode(light1, OUTPUT);
- pinMode(light2, OUTPUT);
- pinMode(light3, OUTPUT);
+    Serial.begin(115200);  // Inisialisasi komunikasi Serial
+    Serial.println("ESP32 Blinking LED");
+
+
+    // Atur pin sebagai OUTPUT
+    pinMode(lampu1, OUTPUT);
+    pinMode(lampu2, OUTPUT);
+    pinMode(lampu3, OUTPUT);
 }
 
+
 void loop() {
- digitalWrite(light1, HIGH); 
-delay(1000);
-digitalWrite(light1, LOW);
+   
+  digitalWrite(lampu1, HIGH);
+  digitalWrite(lampu2, LOW);
+  digitalWrite(lampu3, LOW);
 
-digitalWrite(light2, HIGH);
-delay(400);
-digitalWrite(light2, LOW);
+  delay(1000);
 
-digitalWrite(light3, HIGH);
-delay(1000);
-digitalWrite(light3, LOW);
+  digitalWrite(lampu1, LOW);
+  digitalWrite(lampu2, HIGH);
+  digitalWrite(lampu3, LOW);
+
+  delay(1000);
+
+  digitalWrite(lampu1, LOW);
+  digitalWrite(lampu2, LOW);
+  digitalWrite(lampu3, HIGH);
+
+  delay(1000);
+
+
+
 }
